@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mo2 Deal Status Report — {{WEEK_OF_DATE}}</title>
+<style>
+  /* Letter portrait; Chromium print-to-pdf. Footer repeats per page via position:fixed. */
+  @page { size: letter; margin: 0.55in 0.55in 0.75in 0.55in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1a1d23; font-size: 9.5pt; line-height: 1.4; }
+
+  .report-header { border-bottom: 3px solid #1a1d23; padding-bottom: 10px; margin-bottom: 18px; }
+  .report-header .firm { font-size: 10pt; font-weight: 700; letter-spacing: 3px; color: #555; }
+  .report-header h1 { font-size: 22pt; font-weight: 800; margin: 2px 0 4px; }
+  .report-header .meta { font-size: 9pt; color: #555; }
+
+  .deal { margin-bottom: 20px; page-break-inside: avoid; }
+  .deal-name { background: #1a1d23; color: #fff; font-size: 12pt; font-weight: 700; padding: 5px 10px; border-radius: 3px 3px 0 0; }
+  .deal-stageline { background: #f0f1f3; padding: 4px 10px; font-size: 9pt; font-weight: 600; color: #333; border-bottom: 1px solid #d9dbe0; }
+  .deal-headline { padding: 6px 10px; font-size: 9.5pt; background: #fafafa; border-bottom: 1px solid #e4e6ea; }
+  .deal-headline strong { font-weight: 700; }
+
+  table.tasks { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  table.tasks th { text-align: left; padding: 4px 8px; background: #f0f1f3; border-bottom: 1.5px solid #c9ccd2; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.5px; color: #555; }
+  table.tasks td { padding: 5px 8px; border-bottom: 1px solid #e8eaee; vertical-align: top; }
+  table.tasks td.task { width: 26%; font-weight: 600; }
+  table.tasks td.status { width: 18%; white-space: nowrap; }
+  table.tasks td.notes { width: 56%; color: #333; }
+
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: baseline; }
+  .dot.inprogress { background: #9d50dd; }   /* In Progress */
+  .dot.working    { background: #fdab3d; }   /* Working on it */
+  .dot.stuck      { background: #df2f4a; }   /* Stuck */
+  .dot.waiting    { background: #007eb5; }   /* Waiting on Others */
+  .dot.done       { background: #00c875; }   /* Done */
+
+  .completed { padding: 6px 10px; font-size: 9pt; color: #2c5f2d; background: #f4faf4; border-top: 1px solid #e0eee0; }
+  .completed .check { color: #00893e; font-weight: 700; }
+
+  .decisions { margin-top: 22px; border: 2px solid #df2f4a; border-radius: 4px; page-break-inside: avoid; }
+  .decisions h2 { background: #df2f4a; color: #fff; font-size: 11pt; padding: 5px 10px; }
+  .decisions ul { padding: 8px 10px 8px 26px; }
+  .decisions li { margin-bottom: 4px; }
+
+  .report-footer { position: fixed; bottom: -0.55in; left: 0; right: 0; padding-top: 4px; border-top: 1px solid #c9ccd2; font-size: 7.5pt; color: #888; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<div class="report-footer">
+  <span>Mo2 Properties &bull; Confidential</span>
+  <span>Source: monday.com CRM</span>
+  <span>{{REPORT_DATE}}</span>
+</div>
+
+<div class="report-header">
+  <div class="firm">MO2 PROPERTIES</div>
+  <h1>Deal Status Report</h1>
+  <div class="meta">Week of {{WEEK_OF_DATE}} &bull; Prepared by Grant Sapkin &bull; For Kenny &amp; Michael Motew</div>
+</div>
+
+<!-- BEGIN deal section: repeat this block once per in-scope deal, ordered by stage maturity -->
+<div class="deal">
+  <div class="deal-name">{{DEAL_NAME}}</div>
+  <div class="deal-stageline">Stage: {{STAGE}} | Value: {{VALUE}} | Counterparty: {{COUNTERPARTY}}</div>
+  <div class="deal-headline"><strong>Headline:</strong> {{HEADLINE}}</div>
+  <table class="tasks">
+    <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
+    <!-- repeat per open task; dot class: inprogress | working | stuck | waiting -->
+    <tr>
+      <td class="task">{{TASK_NAME}}</td>
+      <td class="status"><span class="dot {{STATUS_CLASS}}"></span>{{STATUS_LABEL}}</td>
+      <td class="notes">{{TASK_NOTES}}</td>
+    </tr>
+  </table>
+  <div class="completed"><span class="check">Recently completed:</span> <span class="check">&#10003;</span> {{COMPLETED_ITEM_1}} &nbsp; <span class="check">&#10003;</span> {{COMPLETED_ITEM_2}}</div>
+</div>
+<!-- END deal section -->
+
+<!-- OPTIONAL: include only when at least one task has Decision Needed checked -->
+<div class="decisions">
+  <h2>Decisions Needed — Kenny &amp; Michael</h2>
+  <ul>
+    <li><strong>{{DEAL_NAME}} — {{TASK_NAME}}:</strong> {{DECISION_SUMMARY}}</li>
+  </ul>
+</div>
+<!-- END optional decisions section -->
+
+</body>
+</html>
