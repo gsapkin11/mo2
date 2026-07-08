@@ -77,7 +77,8 @@ monday.com account `mo2-hq.monday.com`.
 
 ## 4. Compose the report (match the reference PDF exactly)
 
-**Header:** `MO2 PROPERTIES` / `Deal Status Report` /
+**Header:** `MO2 PROPERTIES` / `Deal Status Report — {Month D, YYYY}` (date in
+the title, per Grant 7/8/26) /
 `Week of {date} • Prepared by Grant Sapkin • For Kenny & Michael Motew`.
 
 **Per deal section:**
