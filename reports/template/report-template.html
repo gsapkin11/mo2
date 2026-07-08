@@ -4,46 +4,53 @@
 <meta charset="utf-8">
 <title>Mo2 Deal Status Report — {{WEEK_OF_DATE}}</title>
 <style>
-  /* Letter portrait; Chromium print-to-pdf. Footer repeats per page via position:fixed. */
-  @page { size: letter; margin: 0.55in 0.55in 0.75in 0.55in; }
+  /* Letter portrait; Chromium print-to-pdf. Condensed format — the whole report must fit ~2 pages. */
+  @page { size: letter; margin: 0.5in 0.5in 0.6in 0.5in; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1a1d23; font-size: 9.5pt; line-height: 1.4; }
+  html, body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1a1d23; font-size: 9pt; line-height: 1.35; }
 
-  .report-header { border-bottom: 3px solid #1a1d23; padding-bottom: 10px; margin-bottom: 18px; }
-  .report-header .firm { font-size: 10pt; font-weight: 700; letter-spacing: 3px; color: #555; }
-  .report-header h1 { font-size: 22pt; font-weight: 800; margin: 2px 0 4px; }
-  .report-header .meta { font-size: 9pt; color: #555; }
+  .report-header { border-bottom: 3px solid #1a1d23; padding-bottom: 7px; margin-bottom: 12px; }
+  .report-header .firm { font-size: 9pt; font-weight: 700; letter-spacing: 3px; color: #555; }
+  .report-header h1 { font-size: 18pt; font-weight: 800; margin: 1px 0 2px; }
+  .report-header .meta { font-size: 8.5pt; color: #555; }
 
-  .deal { margin-bottom: 20px; page-break-inside: avoid; }
-  .deal-name { background: #1a1d23; color: #fff; font-size: 12pt; font-weight: 700; padding: 5px 10px; border-radius: 3px 3px 0 0; }
-  .deal-stageline { background: #f0f1f3; padding: 4px 10px; font-size: 9pt; font-weight: 600; color: #333; border-bottom: 1px solid #d9dbe0; }
-  .deal-headline { padding: 6px 10px; font-size: 9.5pt; background: #fafafa; border-bottom: 1px solid #e4e6ea; }
+  .deal { margin-bottom: 12px; page-break-inside: avoid; }
+  .deal-name { background: #1a1d23; color: #fff; font-size: 10.5pt; font-weight: 700; padding: 4px 9px; border-radius: 3px 3px 0 0; }
+  .deal-name .stagetag { float: right; font-size: 8.5pt; font-weight: 600; color: #cfd3da; }
+  .deal-stageline { background: #f0f1f3; padding: 3px 9px; font-size: 8.5pt; font-weight: 600; color: #333; border-bottom: 1px solid #d9dbe0; }
+  .deal-headline { padding: 5px 9px; font-size: 9pt; background: #fafafa; border-bottom: 1px solid #e4e6ea; }
   .deal-headline strong { font-weight: 700; }
 
-  table.tasks { width: 100%; border-collapse: collapse; font-size: 9pt; }
-  table.tasks th { text-align: left; padding: 4px 8px; background: #f0f1f3; border-bottom: 1.5px solid #c9ccd2; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.5px; color: #555; }
-  table.tasks td { padding: 5px 8px; border-bottom: 1px solid #e8eaee; vertical-align: top; }
-  table.tasks td.task { width: 26%; font-weight: 600; }
-  table.tasks td.status { width: 18%; white-space: nowrap; }
-  table.tasks td.notes { width: 56%; color: #333; }
+  table.tasks { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+  table.tasks th { text-align: left; padding: 3px 7px; background: #f0f1f3; border-bottom: 1.5px solid #c9ccd2; font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.5px; color: #555; }
+  table.tasks td { padding: 3px 7px; border-bottom: 1px solid #e8eaee; vertical-align: top; }
+  table.tasks td.task { width: 25%; font-weight: 600; }
+  table.tasks td.status { width: 16%; white-space: nowrap; }
+  table.tasks td.notes { width: 59%; color: #333; }
 
-  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; vertical-align: baseline; }
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; }
   .dot.inprogress { background: #9d50dd; }   /* In Progress */
   .dot.working    { background: #fdab3d; }   /* Working on it */
   .dot.stuck      { background: #df2f4a; }   /* Stuck */
   .dot.waiting    { background: #007eb5; }   /* Waiting on Others */
   .dot.done       { background: #00c875; }   /* Done */
 
-  .completed { padding: 6px 10px; font-size: 9pt; color: #2c5f2d; background: #f4faf4; border-top: 1px solid #e0eee0; }
+  .completed { padding: 4px 9px; font-size: 8.5pt; color: #2c5f2d; background: #f4faf4; border-top: 1px solid #e0eee0; }
   .completed .check { color: #00893e; font-weight: 700; }
 
-  .decisions { margin-top: 22px; border: 2px solid #df2f4a; border-radius: 4px; page-break-inside: avoid; }
-  .decisions h2 { background: #df2f4a; color: #fff; font-size: 11pt; padding: 5px 10px; }
-  .decisions ul { padding: 8px 10px 8px 26px; }
-  .decisions li { margin-bottom: 4px; }
+  /* Quiet strip: one row per deal with no meaningful activity this week */
+  .quiet { margin-bottom: 12px; border: 1px solid #d9dbe0; border-radius: 3px; }
+  .quiet h3 { background: #f0f1f3; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.5px; color: #555; padding: 3px 9px; }
+  .quiet .row { padding: 4px 9px; font-size: 8.5pt; border-top: 1px solid #e8eaee; }
+  .quiet .row strong { font-weight: 700; }
+
+  .decisions { margin-top: 14px; border: 2px solid #df2f4a; border-radius: 4px; page-break-inside: avoid; }
+  .decisions h2 { background: #df2f4a; color: #fff; font-size: 10pt; padding: 4px 9px; }
+  .decisions ul { padding: 6px 9px 6px 24px; font-size: 8.5pt; }
+  .decisions li { margin-bottom: 3px; }
 
   /* NOTE: position:fixed footers misrender in Chromium print-to-pdf (overlap page tops). Keep the footer as the last block in <body>. */
-  .report-footer { margin-top: 24px; padding-top: 4px; border-top: 1px solid #c9ccd2; font-size: 7.5pt; color: #888; display: flex; justify-content: space-between; }
+  .report-footer { margin-top: 16px; padding-top: 4px; border-top: 1px solid #c9ccd2; font-size: 7.5pt; color: #888; display: flex; justify-content: space-between; }
 </style>
 </head>
 <body>
@@ -54,14 +61,15 @@
   <div class="meta">Week of {{WEEK_OF_DATE}} &bull; Prepared by Grant Sapkin &bull; For Kenny &amp; Michael Motew</div>
 </div>
 
-<!-- BEGIN deal section: repeat this block once per in-scope deal, ordered by stage maturity -->
+<!-- BEGIN deal section: repeat once per ACTIVE deal (activity this week), ordered by imminence/importance.
+     stagetag is optional — use for banner states like "CLOSING FRIDAY 7/10", "CLOSED 6/30", "NEW". -->
 <div class="deal">
-  <div class="deal-name">{{DEAL_NAME}}</div>
+  <div class="deal-name">{{DEAL_NAME}} <span class="stagetag">{{OPTIONAL_TAG}}</span></div>
   <div class="deal-stageline">Stage: {{STAGE}} | Value: {{VALUE}} | Counterparty: {{COUNTERPARTY}}</div>
   <div class="deal-headline"><strong>Headline:</strong> {{HEADLINE}}</div>
   <table class="tasks">
     <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
-    <!-- repeat per open task; dot class: inprogress | working | stuck | waiting -->
+    <!-- max ~4-5 rows per deal; dot class: inprogress | working | stuck | waiting -->
     <tr>
       <td class="task">{{TASK_NAME}}</td>
       <td class="status"><span class="dot {{STATUS_CLASS}}"></span>{{STATUS_LABEL}}</td>
@@ -72,9 +80,15 @@
 </div>
 <!-- END deal section -->
 
+<!-- Deals with little/no activity get one row here instead of a full section -->
+<div class="quiet">
+  <h3>No Movement This Week</h3>
+  <div class="row"><strong>{{DEAL_NAME}}</strong> ({{STAGE}}, {{VALUE}}) &mdash; {{ONE_LINE_STATUS}}</div>
+</div>
+
 <!-- OPTIONAL: include only when at least one task has Decision Needed checked -->
 <div class="decisions">
-  <h2>Decisions Needed — Kenny &amp; Michael</h2>
+  <h2>Decisions Needed &mdash; Kenny &amp; Michael</h2>
   <ul>
     <li><strong>{{DEAL_NAME}} — {{TASK_NAME}}:</strong> {{DECISION_SUMMARY}}</li>
   </ul>

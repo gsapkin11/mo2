@@ -69,6 +69,12 @@ monday.com account `mo2-hq.monday.com`.
    catches Stage transitions, new/completed tasks, and column edits that
    don't appear as updates.
 
+   ⚠️ Known issue: `get_board_activity` has repeatedly failed in this
+   environment ("Tool permission stream closed"). If it fails twice, proceed
+   without it — infer stage changes from item `updated_at` timestamps, the
+   Verdict Reasoning log (CLOSED WON / POST-MORTEM entries), and update
+   content. Do not block the report on this call.
+
 ## 4. Compose the report (match the reference PDF exactly)
 
 **Header:** `MO2 PROPERTIES` / `Deal Status Report` /
@@ -90,8 +96,27 @@ Skip the section entirely if nothing is flagged.
 **Footer (every page):** `Mo2 Properties • Confidential`, `Source: monday.com CRM`, report date.
 
 **Tone/quality bar:** terse, specific, decision-oriented — names, dates,
-dollar figures. Never invent facts; if the CRM is silent on a deal all week,
-say "No movement this week." Do not include GS-track deals.
+dollar figures. Never invent facts. Do not include GS-track deals.
+
+**Length limit (hard requirement from Grant, 7/8/26): the report must fit
+~2 pages.** To stay under:
+
+- Full deal sections ONLY for deals with meaningful activity this week.
+- Deals with little/no activity go in the one-line-per-deal "No Movement This
+  Week" strip (`.quiet` block in the template) — never a full section.
+- Max ~4–5 task rows per deal; notes ≤ 2 short sentences; merge minor items.
+- Order sections by imminence/importance (imminent closings first), not
+  strictly by stage. Use the `.stagetag` banner for states like
+  "CLOSING FRIDAY 7/10", "CLOSED 6/30", "NEW".
+- Closed deals: full section the week they close and while material post-close
+  items remain, then drop to the quiet strip / off entirely.
+- Passed deals: omit unless the pass itself is the week's news (one section
+  max, headline only).
+
+**Grant's corrections override the CRM.** If Grant supplies deal updates in
+chat before or after a run, they are the source of truth for that report —
+regenerate and re-archive. New deals he names that aren't in the CRM yet get
+a section from his notes, marked "not yet tracked in the CRM."
 
 ## 5. Render to PDF
 
