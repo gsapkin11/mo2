@@ -97,6 +97,8 @@ Skip the section entirely if nothing is flagged.
 
 **Tone/quality bar:** terse, specific, decision-oriented — names, dates,
 dollar figures. Never invent facts. Do not include GS-track deals.
+Spell out legal/deal abbreviations in full (e.g. "Amended & Restated LLC
+agreement", not "A&R LLC agreement") — Grant's request 7/8/26.
 
 **Length limit (hard requirement from Grant, 7/8/26): the report must fit
 ~2 pages.** To stay under:
