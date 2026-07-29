@@ -1,7 +1,8 @@
 # Mo2 Reporting Automation
 
-Automation assets for Mo2 Properties recurring reports, generated from the
-monday.com CRM.
+Automation assets for Mo2 Properties recurring reports, generated from Grant's
+internal deal-tracking system. The delivered report never names that system —
+see the confidentiality note in the runbook.
 
 ## Contents
 
@@ -15,5 +16,5 @@ monday.com CRM.
 ## Schedule
 
 A Claude Code routine runs every **Wednesday at 9:00 AM Chicago time**, scans
-all updates on Mo2-track deals in the WildroseOS CRM from the past week, and
-delivers the report as a PDF.
+all updates on Mo2-track deals from the past week, and delivers the report as a
+PDF.
