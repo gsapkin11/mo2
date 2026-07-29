@@ -15,5 +15,5 @@ monday.com CRM.
 ## Schedule
 
 A Claude Code routine runs every **Wednesday at 9:00 AM Chicago time**, scans
-all updates on Mo2-track deals in the monday.com CRM from the past week, and
+all updates on Mo2-track deals in the WildroseOS CRM from the past week, and
 delivers the report as a PDF.
