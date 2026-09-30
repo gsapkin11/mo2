@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Mo2 Deal Status Report — September 30, 2026</title>
+<style>
+  @page { size: letter; margin: 0.5in 0.5in 0.6in 0.5in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #1a1d23; font-size: 9pt; line-height: 1.35; }
+
+  .report-header { border-bottom: 3px solid #1a1d23; padding-bottom: 7px; margin-bottom: 12px; }
+  .report-header .firm { font-size: 9pt; font-weight: 700; letter-spacing: 3px; color: #555; }
+  .report-header h1 { font-size: 18pt; font-weight: 800; margin: 1px 0 2px; }
+  .report-header .meta { font-size: 8.5pt; color: #555; }
+
+  .stage-group { margin: 2px 0 8px; font-size: 9pt; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #1a1d23; border-bottom: 2px solid #1a1d23; padding-bottom: 2px; }
+  .stage-group .count { float: right; font-weight: 600; color: #777; letter-spacing: 0; }
+  .stage-note { font-size: 8pt; color: #777; font-style: italic; margin: -4px 0 8px; }
+
+  .deal { margin-bottom: 11px; page-break-inside: avoid; }
+  .deal-name { background: #1a1d23; color: #fff; font-size: 10.5pt; font-weight: 700; padding: 4px 9px; border-radius: 3px 3px 0 0; }
+  .deal-name .stagetag { float: right; font-size: 8.5pt; font-weight: 600; color: #cfd3da; }
+  .deal-stageline { background: #f0f1f3; padding: 3px 9px; font-size: 8.5pt; font-weight: 600; color: #333; border-bottom: 1px solid #d9dbe0; }
+  .deal-headline { padding: 5px 9px; font-size: 9pt; background: #fafafa; border-bottom: 1px solid #e4e6ea; }
+  .deal-headline strong { font-weight: 700; }
+
+  table.tasks { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+  table.tasks th { text-align: left; padding: 3px 7px; background: #f0f1f3; border-bottom: 1.5px solid #c9ccd2; font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.5px; color: #555; }
+  table.tasks td { padding: 3px 7px; border-bottom: 1px solid #e8eaee; vertical-align: top; }
+  table.tasks td.task { width: 34%; font-weight: 600; }
+  table.tasks td.status { width: 16%; white-space: nowrap; }
+  table.tasks td.notes { width: 50%; color: #333; }
+
+  .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; }
+  .dot.inprogress { background: #9d50dd; }
+  .dot.working    { background: #fdab3d; }
+  .dot.stuck      { background: #df2f4a; }
+  .dot.waiting    { background: #007eb5; }
+  .dot.done       { background: #00c875; }
+
+  .completed { padding: 4px 9px; font-size: 8.5pt; color: #2c5f2d; background: #f4faf4; border-top: 1px solid #e0eee0; }
+  .completed .check { color: #00893e; font-weight: 700; }
+
+  .quiet { margin-bottom: 11px; border: 1px solid #d9dbe0; border-radius: 3px; }
+  .quiet .row { padding: 4px 9px; font-size: 8.5pt; border-top: 1px solid #e8eaee; }
+  .quiet .row:first-child { border-top: none; }
+  .quiet .row strong { font-weight: 700; }
+
+  .report-footer { margin-top: 14px; padding-top: 4px; border-top: 1px solid #c9ccd2; font-size: 7.5pt; color: #888; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="firm">MO2 PROPERTIES</div>
+  <h1>Deal Status Report &mdash; September 30, 2026</h1>
+  <div class="meta">Week of September 30, 2026 &bull; Prepared by Grant Sapkin &bull; For Kenny &amp; Michael Motew</div>
+</div>
+
+<!-- ============ SCREENED ============ -->
+<div class="stage-group">Screened &mdash; Active Underwriting <span class="count">4 deals</span></div>
+
+<!-- 2801 W Logan Blvd -->
+<div class="deal">
+  <div class="deal-name">2801 W Logan Blvd &mdash; Logan Square <span class="stagetag">TOURING TODAY 10 AM</span></div>
+  <div class="deal-stageline">Stage: Screened | Value: $4.0M | 14 units | Counterparty: Will Sprinkman</div>
+  <div class="deal-headline"><strong>Headline:</strong> The week's most active file. 14-unit Logan Square walk-up &mdash; second walk-through this morning at 10 AM, then Grant firms the numbers off it. Kenny &amp; Michael have already been through the building and Andrew has been running and re-reviewing the underwrite (last review 9/29). Note the initial screen flags it above our $2.0M price ceiling with a DSCR around 1.05 (below the 1.20 floor); today's tour and refreshed numbers decide whether the in-place economics hold up or it&rsquo;s a pass unless the price moves.</div>
+  <table class="tasks">
+    <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
+    <tr><td class="task">Tour, then firm up numbers</td><td class="status"><span class="dot inprogress"></span>In Progress</td><td class="notes">Walk-through 10 AM today (9/30); tighten the underwrite immediately after.</td></tr>
+  </table>
+  <div class="completed"><span class="check">Recently completed:</span> <span class="check">&#10003;</span> First tour with Will (9/23) &nbsp; <span class="check">&#10003;</span> Got Kenny &amp; Michael through the building (9/24) &nbsp; <span class="check">&#10003;</span> Andrew ran &amp; reviewed the numbers (9/29)</div>
+</div>
+
+<!-- East Lincoln Park -->
+<div class="deal">
+  <div class="deal-name">East Lincoln Park &mdash; 67-Unit Deconversion <span class="stagetag">GATING ON ACCESS</span></div>
+  <div class="deal-stageline">Stage: Screened | Value: ~$15.0M (our basis) | 67 units | Counterparty: Matt Neistat</div>
+  <div class="deal-headline"><strong>Headline:</strong> Our biggest active deal and still the one to land. 67-unit Lincoln Park building (near DePaul / Wiener Circle), a full-building condo deconversion sourced through Matt, who advises the ownership group after they took an unsolicited offer. Matt has been back with the owners on next steps; Andrew is running numbers again today and Grant follows up with Matt to pin down building access. Price talk stays wide &mdash; sellers float $18.5&ndash;$19.0M, Matt pegs ~$17.0M, we underwrite from ~$15.0M. Capex runs $1.5&ndash;$2.0M (~$15K/unit) for electrical and galvanized plumbing on top of recent roof/masonry/elevator work; post-reno 1BRs pencil $2,700&ndash;$2,900. Getting inside is the gating item.</div>
+  <table class="tasks">
+    <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
+    <tr><td class="task">Andrew running numbers, then review</td><td class="status"><span class="dot inprogress"></span>In Progress</td><td class="notes">Refresh the deconversion underwrite (due today, 9/30).</td></tr>
+    <tr><td class="task">Follow up with Matt on access</td><td class="status"><span class="dot waiting"></span>Waiting</td><td class="notes">Owners still in discussion; nail down when we can get into the building.</td></tr>
+  </table>
+  <div class="completed"><span class="check">Recently completed:</span> <span class="check">&#10003;</span> Called Matt for a next-week walk-through date (9/25) &nbsp; <span class="check">&#10003;</span> Checked in &mdash; Matt is working it with the owners (9/28)</div>
+</div>
+
+<!-- 1006 S Michigan Ave -->
+<div class="deal">
+  <div class="deal-name">1006 S Michigan Ave &mdash; South Loop <span class="stagetag">PRICE NEGOTIATION</span></div>
+  <div class="deal-stageline">Stage: Screened | Value: $7.75M ask (testing ~$5.8M) | 49 units | Counterparty: &mdash;</div>
+  <div class="deal-headline"><strong>Headline:</strong> 49-unit South Loop adaptive-reuse play that&rsquo;s turning into a basis question. After reviewing with Andrew and getting Kenny &amp; Michael looped in, Grant is re-running it at ~$5.8M and has already floated whether the owners would take roughly $5M &mdash; well below the $7.75M ask. Scale and location fit; the deal only works if we buy right, so this week is about firming the number and testing seller flexibility.</div>
+  <table class="tasks">
+    <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
+    <tr><td class="task">Firm up numbers at ~$5.8M</td><td class="status"><span class="dot inprogress"></span>In Progress</td><td class="notes">See what the deal looks like at a lower basis (due today, 9/30).</td></tr>
+  </table>
+  <div class="completed"><span class="check">Recently completed:</span> <span class="check">&#10003;</span> Andrew ran numbers, forwarded files, reviewed together (9/25&ndash;9/29) &nbsp; <span class="check">&#10003;</span> Tested owners on a ~$5M purchase price (9/30)</div>
+</div>
+
+<!-- 515 N Dearborn St -->
+<div class="deal">
+  <div class="deal-name">515 N Dearborn St &mdash; River North <span class="stagetag">ADAPTIVE REUSE</span></div>
+  <div class="deal-stageline">Stage: Screened | Value: $7.5M | Counterparty: Robert Baum</div>
+  <div class="deal-headline"><strong>Headline:</strong> River North building under an adaptive-reuse lens. Scott&rsquo;s package is in hand and Andrew is finishing the underwrite, with the review due today. It sits on the edge on the initial read &mdash; the refreshed numbers tell us whether to push the seller on price or let it sit.</div>
+  <table class="tasks">
+    <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
+    <tr><td class="task">Andrew running numbers, then review</td><td class="status"><span class="dot inprogress"></span>In Progress</td><td class="notes">Adaptive-reuse underwrite, review due today (9/30).</td></tr>
+  </table>
+  <div class="completed"><span class="check">Recently completed:</span> <span class="check">&#10003;</span> Ran as adaptive reuse on Scott&rsquo;s info (9/21) &nbsp; <span class="check">&#10003;</span> Andrew&rsquo;s first pass reviewed (9/29)</div>
+</div>
+
+<!-- ============ LOI ============ -->
+<div class="stage-group">LOI <span class="count">0 deals</span></div>
+<div class="stage-note">Nothing at LOI this week.</div>
+
+<!-- ============ UNDER CONTRACT ============ -->
+<div class="stage-group">Under Contract <span class="count">0 deals</span></div>
+<div class="stage-note">Nothing under contract this week.</div>
+
+<!-- ============ HOLD ============ -->
+<div class="stage-group">Hold <span class="count">2 deals</span></div>
+
+<!-- 3639 N Broadway -->
+<div class="deal">
+  <div class="deal-name">3639 N Broadway &mdash; Wrigleyville Development Site <span class="stagetag">MODELING UPZONE</span></div>
+  <div class="deal-stageline">Stage: Hold | Value: $5.0M | 24 units as-of-right (59-unit upzone case) | Counterparty: Steve Frishman</div>
+  <div class="deal-headline"><strong>Headline:</strong> Wrigleyville development site at $5.0M, held while we model the upside case. Base case is 24 units as-of-right; the denser scenario is 59 residential + 2 retail + 40 parking, which needs a zoning change. The upzone is the basis lever &mdash; at 59 units land runs ~$85K/door vs ~$208K/door at 24, moving basis from above our $150K/door ceiling to comfortably under. Swing variable is entitlement risk/timeline on the rezone; construction cost/SF, exit cap on cost, and post-rezone reassessment are the core sensitivities.</div>
+  <table class="tasks">
+    <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
+    <tr><td class="task">Run both scenarios w/ Kenny &amp; Michael</td><td class="status"><span class="dot inprogress"></span>In Progress</td><td class="notes">24-unit as-of-right base vs 59-unit upzone case.</td></tr>
+    <tr><td class="task">Gate the 59-unit case</td><td class="status"><span class="dot waiting"></span>Waiting</td><td class="notes">Does the entitlement timeline + cost still clear a 7%+ yield on cost?</td></tr>
+  </table>
+  <div class="completed"><span class="check">Recently completed:</span> <span class="check">&#10003;</span> Discussed with Ken (9/16)</div>
+</div>
+
+<!-- 1312 W North Ave -->
+<div class="deal">
+  <div class="deal-name">1312 W North Ave &mdash; Lincoln Park / West Town <span class="stagetag">HOLD</span></div>
+  <div class="deal-stageline">Stage: Hold | Value: $1.15M | Counterparty: Michael Rourke</div>
+  <div class="deal-headline"><strong>Headline:</strong> Got details from Michael and ran the numbers; on hold behind a competing buyer. Holding to see whether that deal falls through before spending more time &mdash; next check-in is 10/19.</div>
+  <table class="tasks">
+    <tr><th>Task</th><th>Status</th><th>Notes</th></tr>
+    <tr><td class="task">Check in with Mike &mdash; did the deal fall through?</td><td class="status"><span class="dot waiting"></span>Waiting</td><td class="notes">Follow up 10/19.</td></tr>
+  </table>
+  <div class="completed"><span class="check">Recently completed:</span> <span class="check">&#10003;</span> Got details from Michael, ran numbers (9/21)</div>
+</div>
+
+<!-- ============ PASSED THIS WEEK ============ -->
+<div class="stage-group">Passed This Week <span class="count">4 deals</span></div>
+<div class="quiet">
+  <div class="row"><strong>3935 W Diversey Ave</strong> (Logan Square, $10.15M, 70 units &mdash; Joe Smazal) &mdash; ran the numbers in the new template; economics don&rsquo;t clear the box. Passed.</div>
+  <div class="row"><strong>956-58 N Winchester Ave</strong> (West Town, $5.5M, 16 units &mdash; Justin Ross) &mdash; ran initial numbers and got pricing guidance; doesn&rsquo;t pencil at ask. Passed.</div>
+  <div class="row"><strong>1601-1609 W Superior St</strong> (West Town, $2.5M, 54 units &mdash; David Kaplan) &mdash; pulled info from Kaplan; not a fit on the numbers. Passed.</div>
+  <div class="row"><strong>1725 N Pulaski Rd</strong> ($0.8M) &mdash; screened and passed this week.</div>
+</div>
+
+<div class="report-footer">
+  <span>Mo2 Properties &bull; Confidential</span>
+  <span>Prepared by Grant Sapkin</span>
+  <span>September 30, 2026</span>
+</div>
+
+</body>
+</html>
